@@ -3,12 +3,14 @@ package KpCoding.example.JournalApp.api.resoponse;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
 @Getter
 @Setter
 public class WeatherResponse {
+    @Autowired
     private Current current;
 
     @Getter

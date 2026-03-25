@@ -4,6 +4,8 @@ spring:
       uri: ${MONGODB_URI}
       database: journaldb
       auto-index-creation: true
+  cache:
+    type: none
 
 server:
   port: 8080

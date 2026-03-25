@@ -14,6 +14,7 @@ import org.springframework.web.client.RestTemplate;
 @EnableTransactionManagement
 @EnableMongoRepositories(basePackages = "KpCoding.example.JournalApp.Repository")
 public class JournalAppApplication {
+
 	public static void main(String[] args) {
 		SpringApplication.run(JournalAppApplication.class, args);
 	}
@@ -28,3 +29,4 @@ public class JournalAppApplication {
 		return new RestTemplate();
 	}
 }
+
