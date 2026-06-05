@@ -51,10 +51,10 @@ public class UserController {
         RandomCity randomCity = new RandomCity();
         String city = randomCity.selectRandomCity();
 
-        WeatherResponse weatherResponse = weatherService.getWeather("Mumbai");
+        WeatherResponse weatherResponse = weatherService.getWeather(city);
         String greeting = "";
         if(weatherResponse != null){
-            greeting = ", In " + "Mumbai" + ", Weather feels like " + weatherResponse.getCurrent().getFeelslike() + " and weather is like " + weatherResponse.getCurrent().getWeatherDescriptions().get(0);
+            greeting = ", In " + city + ", Weather feels like " + weatherResponse.getCurrent().getFeelslike() + " and weather is like " + weatherResponse.getCurrent().getWeatherDescriptions().get(0);
         }
 
         return new ResponseEntity<>("Hi " + userName + greeting,HttpStatus.OK);
