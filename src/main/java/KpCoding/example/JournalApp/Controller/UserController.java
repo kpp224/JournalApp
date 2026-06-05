@@ -46,14 +46,15 @@ public class UserController {
     public ResponseEntity<?> getUsers(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String userName = authentication.getName();
+        UserEntry userEntry = userService.findByUserName(userName);
 
         RandomCity randomCity = new RandomCity();
         String city = randomCity.selectRandomCity();
 
-        WeatherResponse weatherResponse = weatherService.getWeather(city);
+        WeatherResponse weatherResponse = weatherService.getWeather("Mumbai");
         String greeting = "";
         if(weatherResponse != null){
-            greeting = ", In " + city + ", Weather feels like " + weatherResponse.getCurrent().getFeelslike() + " and weather is like " + weatherResponse.getCurrent().getWeatherDescriptions().get(0);
+            greeting = ", In " + "Mumbai" + ", Weather feels like " + weatherResponse.getCurrent().getFeelslike() + " and weather is like " + weatherResponse.getCurrent().getWeatherDescriptions().get(0);
         }
 
         return new ResponseEntity<>("Hi " + userName + greeting,HttpStatus.OK);
