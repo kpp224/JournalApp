@@ -15,6 +15,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Autowired
     UserRepository userRepository;
 
+    public static UserDetails loadByUsername(@lombok.NonNull String userName) {
+        return null;
+    }
+
     @Override
     public UserDetails loadUserByUsername(@NonNull String username) throws UsernameNotFoundException {
         UserEntry user = userRepository.findByUserName(username);
